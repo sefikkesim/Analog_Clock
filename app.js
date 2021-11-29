@@ -5,8 +5,13 @@ const secondsHand = document.querySelector(".hand-seconds");
 const getTime = () => {
   const now = new Date();
 
-  const hours = now.getHours();
-  const hoursDegree = ((hours / 60) * 360)+ 90 ;
+  let hours = now.getHours();
+  
+  if (hours > 12) {
+    hours -= 12;
+  }
+  console.log(hours);
+  const hoursDegree = ((hours / 60) * 360) ;
   hourHand.style.transform = `rotate(${hoursDegree}deg)`;
   console.log(hoursDegree);
 
